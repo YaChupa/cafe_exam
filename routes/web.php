@@ -14,8 +14,14 @@ use Illuminate\Support\Facades\Auth;
 */
 Auth::routes();
 
+Route::group(['middleware' => 'auth'], function(){
+Route::group(['middleware' => 'is_admin'],function(){
+   Route::get('/orders', 'OrderController@index')->name('home');   
+}); 
+  
+    
+});
 
-Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/', 'MainController@index')->name('index');
 Route::get('/categories', 'MainController@categories')->name('categories');
