@@ -8,7 +8,7 @@
   <div class="col-md-5 p-lg-5 mx-auto my-5">
       @foreach($categories as $category)
       <div>
-          <a href="/{{$category->code}}">     
+          <a href="{{ route('category', $category->code)}}">     
               <img>
               <h2> {{$category->name}} </h2>
           </a>  

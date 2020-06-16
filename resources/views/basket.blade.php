@@ -1,0 +1,64 @@
+@extends('main')
+
+@section('title', 'Basket')
+
+@section('content')
+
+<div>
+    <h1>Basket</h1>
+    <p>Oformlenie zakaza</p>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Col-vo</th>
+                    <th>Price</th>
+                    <th>Coop price</th>
+                </tr>
+            </thead>
+            @foreach($order->products as $product)
+                <tr>
+                    <td>
+                        <a href="{{route('product',[$product->category->code,$product->code])}}">
+                            <img> {{$product ->name}}
+                        </a>
+                    </td>
+                    <td><span class="heh">1</span>
+                        <div>
+                            <form action="{{route('basket-add', $product)}}" method="POST">
+                            <button type="submit" class="btn btn-outline-secondary" href=""><span class="minus"></span></button>
+                            @CSRF
+                            </form>
+                            <form action="{{route('basket-add', $product)}}" method="POST">
+                            <button type="submit" class="btn btn-outline-secondary" href=""><span class="plus"></span></button>
+                            @CSRF
+                            </form>
+                        </div>
+                    </td>
+                    <td>{{$product->price}}</td>
+                    <td>{{$product->price}}</td>
+                </tr>
+            
+            @endforeach
+            <tbody>
+
+                <tr>
+                    <td coldspan ="3">Coop price</td>
+                    <td>666.60 euro</td>
+                </tr>
+            </tbody>
+        </table>
+        <br>
+        <div>
+            <a class="btn btn-outline-secondary" href="/basket/place">Oformit zakaz</a>
+        </div>
+    </div>
+    
+    
+    
+</div>
+
+
+@endsection
+

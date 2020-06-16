@@ -49,9 +49,9 @@
   <body>
     <nav class="site-header sticky-top py-1">
   <div class="container d-flex flex-column flex-md-row justify-content-between">
-      <a class="py-2 d-none d-md-inline-block" href="/">Home</a>
-    <a class="py-2 d-none d-md-inline-block" href="/categories">Product</a>
-    <a class="py-2 d-none d-md-inline-block" href="#">Features</a>
+      <a class="py-2 d-none d-md-inline-block" href="{{ route('index') }}">Home</a>
+    <a class="py-2 d-none d-md-inline-block" href="{{ route('categories') }}">Product</a>
+    <a class="py-2 d-none d-md-inline-block" href="{{ route('basket') }}">Basket</a>
   </div>
 </nav>
 

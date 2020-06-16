@@ -11,8 +11,12 @@
         {{$category ->name}}
     </h1>
   </div>
+   
   <div class="product-device shadow-sm d-none d-md-block"></div>
   <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
+  
 </div>
-    
+@foreach($category->products as $product)
+    @include('homeproducts', compact('product'))
+@endforeach
 @endsection
