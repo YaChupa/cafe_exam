@@ -27,11 +27,11 @@
                     <td><span class="heh">{{$product->pivot->count}}</span>
                         <div>
                             <form action="{{route('basket-remove', $product)}}" method="POST">
-                            <button type="submit" class="btn btn-outline-secondary" href=""><span class="minus"></span></button>
+                            <button type="submit" class="btn btn-outline-secondary" href=""><span class="minus">-</span></button>
                             @CSRF
                             </form>
                             <form action="{{route('basket-add', $product)}}" method="POST">
-                            <button type="submit" class="btn btn-outline-secondary" href=""><span class="plus"></span></button>
+                            <button type="submit" class="btn btn-outline-secondary" href=""><span class="plus">+</span></button>
                             @CSRF
                             </form>
                         </div>
