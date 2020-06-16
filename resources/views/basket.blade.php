@@ -14,7 +14,7 @@
                     <th>Name</th>
                     <th>Col-vo</th>
                     <th>Price</th>
-                    <th>Coop price</th>
+                    <th>Stoimost</th>
                 </tr>
             </thead>
             @foreach($order->products as $product)
@@ -24,9 +24,9 @@
                             <img> {{$product ->name}}
                         </a>
                     </td>
-                    <td><span class="heh">1</span>
+                    <td><span class="heh">{{$product->pivot->count}}</span>
                         <div>
-                            <form action="{{route('basket-add', $product)}}" method="POST">
+                            <form action="{{route('basket-remove', $product)}}" method="POST">
                             <button type="submit" class="btn btn-outline-secondary" href=""><span class="minus"></span></button>
                             @CSRF
                             </form>
@@ -36,8 +36,8 @@
                             </form>
                         </div>
                     </td>
-                    <td>{{$product->price}}</td>
-                    <td>{{$product->price}}</td>
+                    <td>{{$product->price}} euro</td>
+                    <td>{{$product->PriceCount()}} euro</td>
                 </tr>
             
             @endforeach
@@ -45,13 +45,13 @@
 
                 <tr>
                     <td coldspan ="3">Coop price</td>
-                    <td>666.60 euro</td>
+                    <td>{{$order -> OrderCost()}}</td>
                 </tr>
             </tbody>
         </table>
         <br>
         <div>
-            <a class="btn btn-outline-secondary" href="/basket/place">Oformit zakaz</a>
+            <a class="btn btn-outline-secondary" href="{{route('basket-place')}}">Oformit zakaz</a>
         </div>
     </div>
     

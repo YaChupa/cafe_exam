@@ -11,6 +11,9 @@
   <div class="product-device shadow-sm d-none d-md-block"></div>
   <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
 </div>
+@if(session()->has('result'))
+    <p>{{session()->get('result')}}</p>
+@endif
 
 @foreach($products as $product)
     @include('homeproducts', compact('product'))

@@ -8,8 +8,8 @@
     <h1>Podtverdit zakaz</h1>
     <div>
         <div>
-            <p>Obshaya stomoist zakaza: <b>666.60 euro</b></p>
-            <form action="/basket/accept" method="POST">
+            <p>Obshaya stomoist zakaza: <b>{{$order->OrderCost()}} euro</b></p>
+            <form action="{{route('basket-confirm')}}" method="POST">
                 <div>
                     <p>Ukazite Ima,Nomer:</p>
                     <div>
@@ -24,13 +24,14 @@
                     <div>
                         <label>Nomer:  </label>
                         <div>
-                            <input type="text" name="name" id="name" value="">
+                            <input type="text" name="phone" id="phone" value="">
                         </div>
                     </div>
                     </div>
+                    <br>                   
                     <br>
-                    <input type="hidden" name="_token"  value="qrqrqr"> <br>
-                    <input type="submit" class="btn btn-outline-secondary" href="/basket/place" value="Podtverditee zakaz">
+                    @CSRF
+                    <input type="submit" class="btn btn-outline-secondary" value="Podtverditee zakaz">
                 </div>
             </form>
         </div>
