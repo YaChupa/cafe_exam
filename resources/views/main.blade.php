@@ -73,6 +73,7 @@
                             <li class="nav-item"><a class="nav-link" href="{{ route('index') }}">Home</a></li>
                             <li class="nav-item"><a class="nav-link" href="{{ route('categories') }}">Product</a></li>
                             <li class="nav-item"><a class="nav-link" href="{{ route('basket') }}">Basket</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{ route('home') }}">Orders</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

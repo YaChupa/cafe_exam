@@ -25,7 +25,7 @@ class Order extends Model
         return $cost;
     }
     
-    public function OrderSaving($name, $phone){
+    /*public function OrderSaving($name, $phone){
         
         if($this->status == 0){
             $this->name = $name;
@@ -38,6 +38,6 @@ class Order extends Model
         else{
             return false;
         }
- 
+      }
+ */
     }
-}

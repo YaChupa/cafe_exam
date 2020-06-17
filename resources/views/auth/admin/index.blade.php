@@ -44,7 +44,20 @@
                             <td>{{$order->OrderCost()}}euro</td>
                             <td>
                                 <div class="btn btn-outline-secondary" role="group">
-                                    <a class="" type="button" href="">Open</a>
+                                    <a class="" type="button" href="{{url('/orders/'.$order ->id)}}">Open</a>
+                                    
+                                </div>                                   
+                            </td>
+                            <td>
+                                <div class="btn btn-outline-secondary" role="group">
+                                    <a class="" type="button" href="{{url('/orders/'.$order ->id)}}">Delete</a>
+                                    
+                                </div>                                   
+                            </td>
+                            <td>
+                                <div class="btn btn-outline-secondary" role="group">
+                                    <a class="" type="button" href="{{url('/orders/'.$order ->id)}}">Update</a>
+                                    
                                 </div>                                   
                             </td>
                         </tr>

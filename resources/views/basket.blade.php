@@ -4,6 +4,8 @@
 
 @section('content')
 
+@isset($order)
+
 <div>
     <h1>Basket</h1>
     <p>Oformlenie zakaza</p>
@@ -38,14 +40,13 @@
                     </td>
                     <td>{{$product->price}} euro</td>
                     <td>{{$product->PriceCount()}} euro</td>
-                </tr>
-            
+                </tr>          
             @endforeach
             <tbody>
 
                 <tr>
                     <td coldspan ="3">Coop price</td>
-                    <td>{{$order -> OrderCost()}}</td>
+                    <td>{{$order-> OrderCost()}}</td>
                 </tr>
             </tbody>
         </table>
@@ -58,6 +59,11 @@
     
     
 </div>
+@else
+<p>Your basket is empty</p>
+
+
+@endisset
 
 
 @endsection

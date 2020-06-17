@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class OrderController extends Controller
 {
@@ -21,9 +22,62 @@ class OrderController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function adminOrders()
     {   
-        $orders= \App\Order::where('status',1)->get();
+        $user=auth()->user();
+        //dd($user->is_admin);
+        if($user->is_admin==1){
+             $orders= \App\Order::where('status',1)->get();
+        }
+        else if($user->is_admin==0){
+            $orders= \App\Order::where('status',1)->where('user_id',$user->id)->get();
+        }
+       
         return view('auth.admin.index', compact('orders'));
     }
+    
+    
+    public function userOrders()
+    {   
+        
+        $user=auth()->user();
+        $orders= \App\Order::where('status',1)->where('user_id',$user->id)->get();
+        //dd($orders->get());
+        return view('auth.admin.index', compact('orders'));
+    }
+    
+    public function showOrder($id)
+    {   
+        
+        $orderpage= \App\Order::findOrFail($id);
+        $orders = DB::table('order_product')
+            ->join('products', 'order_product.product_id', '=', 'products.id')
+            ->where('order_product.order_id','=',$id)
+            ->get();
+        //dd($orders);
+        $sum  = 0;
+        foreach($orders as $order){
+            $price  = $order->price;
+            $sum += $price*$order->count;
+        }
+        $user=auth()->user();
+        if($user->id != $orderpage->user_id && $user->is_admin == 0){
+            //dd($user->id); 
+            return  view('auth.admin.error');
+            
+        }
+        //dd($sum);
+        return view('auth.admin.userinfo', compact('orders','orderpage','sum'));
+    }
+    
+    
 }
+/*$first = DB::table('products')
+            ->whereNull('first_name');
+
+$users = DB::table('order_product')
+            ->whereNull('last_name')
+            ->union($first)
+            ->get();
+
+*/

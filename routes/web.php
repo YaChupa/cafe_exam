@@ -14,13 +14,19 @@ use Illuminate\Support\Facades\Auth;
 */
 Auth::routes();
 
-Route::group(['middleware' => 'auth'], function(){
+/*Route::group(['middleware' => 'auth'], function(){
 Route::group(['middleware' => 'is_admin'],function(){
-   Route::get('/orders', 'OrderController@index')->name('home');   
-}); 
-  
-    
+   Route::get('/orders', 'OrderController@adminOrders')->name('home');   
 });
+Route::group(['middleware' => 'is_user'],function(){
+Route::get('/orders', 'OrderController@userOrders')->name('home');   
+});        
+});*/
+
+Route::get('/orders', 'OrderController@adminOrders')->name('home');
+Route::get('/orders/{id}', 'OrderController@showOrder');
+
+
 
 
 Route::get('/', 'MainController@index')->name('index');

@@ -13,6 +13,12 @@ class BasketController extends Controller
            
            $order = \App\Order::findOrFail($orderId);
        }
+       /*if(is_null($orderId)){
+           
+           $order = \App\Order::create();
+       }
+       $order = compact('order');
+       dd($order);*/
        return view('basket', compact('order'));
    }
     
@@ -23,15 +29,21 @@ class BasketController extends Controller
             return redirect()->route('index');
         }
         $order = \App\Order::find($orderId);
-        $result =$order->OrderSaving($query->name,$query->phone);
+        $order->name = $query->name;
+        $order->phone = $query->phone;
+        $order->status = 1;
+        $order->save();
+       
         
-        if($result){
+        session()->forget('orderId');
+        
+        /*if($result){
             session()->flash('result','Your order accepted');
         } 
         else{
             session()->flash('error','Error in order');
         }
-        
+        */
         return redirect()->route('index');
      }
    
@@ -64,6 +76,11 @@ class BasketController extends Controller
       else{
           $order->products()->attach($productId);
           
+      }
+      
+      if(\Illuminate\Support\Facades\Auth::check()){
+          $order->user_id = \Illuminate\Support\Facades\Auth::id();
+          $order->save();
       }
       
       

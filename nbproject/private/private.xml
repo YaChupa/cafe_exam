@@ -3,13 +3,23 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/wamp64/www/cafe/resources/views/index.blade.php</file>
+            <file>file:/C:/wamp64/www/cafe/resources/views/basket.blade.php</file>
+            <file>file:/C:/wamp64/www/cafe/app/Http/Controllers/BasketController.php</file>
+            <file>file:/C:/wamp64/www/cafe/app/Product.php</file>
             <file>file:/C:/wamp64/www/cafe/resources/views/categories.blade.php</file>
             <file>file:/C:/wamp64/www/cafe/resources/views/main.blade.php</file>
-            <file>file:/C:/wamp64/www/cafe/resources/views/category.blade.php</file>
-            <file>file:/C:/wamp64/www/cafe/app/Http/Controllers/MainController.php</file>
+            <file>file:/C:/wamp64/www/cafe/app/Order.php</file>
+            <file>file:/C:/wamp64/www/cafe/app/Http/Middleware/CheckIsAdmin.php</file>
+            <file>file:/C:/wamp64/www/cafe/app/User.php</file>
+            <file>file:/C:/wamp64/www/cafe/app/Http/Kernel.php</file>
+            <file>file:/C:/wamp64/www/cafe/resources/views/auth/admin/index.blade.php</file>
+            <file>file:/C:/wamp64/www/cafe/app/Http/Middleware/RedirectIfAuthenticated.php</file>
+            <file>file:/C:/wamp64/www/cafe/app/Http/Controllers/OrderController.php</file>
+            <file>file:/C:/wamp64/www/cafe/database/migrations/2020_06_16_233554_alter_table_orders.php</file>
+            <file>file:/C:/wamp64/www/cafe/app/Http/Controllers/Auth/RegisterController.php</file>
             <file>file:/C:/wamp64/www/cafe/routes/web.php</file>
             <file>file:/C:/wamp64/www/cafe/resources/views/product.blade.php</file>
+            <file>file:/C:/wamp64/www/cafe/app/Http/Controllers/Auth/LoginController.php</file>
         </group>
     </open-files>
 </project-private>
