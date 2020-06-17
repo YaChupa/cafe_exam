@@ -11,8 +11,8 @@
 
 <table class="banner-home">
         <tr>
-            <th>Cafe</th>
-            <th>Cafe</th>
+            <th>@lang('main.cafe')</th>
+            <th>@lang('main.cafe')</th>
 
         </tr>
         <tr>
@@ -25,7 +25,7 @@
         <table class="bannernxtlvl">
             <tr>
                 <th>
-                    <h1>Our delivery is open!</h1>   
+                    <h1>@lang('main.start')</h1>   
                 </th>
             </tr>
         </table>
@@ -33,8 +33,8 @@
 
 <table class="banner-home">
         <tr>
-            <th>Cafe</th>
-            <th>Cafe</th>
+            <th>@lang('main.cafe')</th>
+            <th>@lang('main.cafe')</th>
 
         </tr>
         <tr>

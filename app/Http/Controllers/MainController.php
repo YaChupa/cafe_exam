@@ -31,7 +31,12 @@ class MainController extends Controller
        return view('product',compact('product'));       
    }
    
- 
+   public function changeLocale($locale){
+       
+       session([ 'locale' => $locale]); 
+       \Illuminate\Support\Facades\App::setLocale($locale);
+      return redirect()->back();
+   } 
    
 }
 

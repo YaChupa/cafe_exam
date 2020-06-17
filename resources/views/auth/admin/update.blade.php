@@ -5,17 +5,17 @@
 @section('content')
 
 <div>
-    <h1>Сhange order details</h1>
+    <h1>@lang('main.changeorder')</h1>
     <div>
         <div>
             <form action="{{url('/orders/{id}')}}" method="POST">
                 <input type="hidden" name="_method" value="PUT">
                 <input type="hidden" name="id" value="{{$order->id}}">
                 <div>
-                    <p>Specify Name, Phone:</p>
+                    <p>@lang('main.specify')</p>
                     <div>
                         <div>
-                        <label>Name:  </label>
+                        <label>@lang('main.nameuser')  </label>
                         <div>
                             <input type="text" name="name" id="name" value="{{$order->name}}">
                         </div>
@@ -23,7 +23,7 @@
                     <br>
                     <br>
                     <div>
-                        <label>Phone:  </label>
+                        <label>@lang('main.phone')  </label>
                         <div>
                             <input type="text" name="phone" id="phone" value="{{$order->phone}}">
                         </div>

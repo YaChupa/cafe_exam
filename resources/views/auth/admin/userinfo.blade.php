@@ -8,22 +8,22 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12">
-                <h1>Order # {{$orderpage ->id}}</h1>
+                <h1>@lang('main.order') # {{$orderpage ->id}}</h1>
                 <table class="table">
                     <tbody>
                     
                         <tr>
                             <th>
-                                Product
+                                @lang('main.product')
                             </th>
                             <th>
-                                Count
+                                @lang('main.quantity')
                             </th>
                             <th>
-                                Price
+                                @lang('main.price')
                             </th>
                             <th>
-                                Cost
+                                @lang('main.cost')
                             </th>
                         </tr>
                         @foreach($orders as $order)
@@ -36,7 +36,7 @@
                         @endforeach
                         
                         <tr>
-                            <td>Total cost: </td>
+                            <td>@lang('main.totalcost') </td>
                             <td></td>
                             <td></td>
                             <td>{{$sum}} €</td>

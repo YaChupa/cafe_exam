@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v4.0.1">
-    <title>Cafe: @yield('title')</title>
+    <title>@lang('main.cafe'): @yield('title')</title>
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
@@ -72,10 +72,11 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-                            <li class="nav-item"><a class="nav-link" href="{{ route('index') }}">Home</a></li>
-                            <li class="nav-item"><a class="nav-link" href="{{ route('categories') }}">Product</a></li>
-                            <li class="nav-item"><a class="nav-link" href="{{ route('basket') }}">Basket</a></li>
-                            <li class="nav-item"><a class="nav-link" href="{{ route('home') }}">Orders</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{ route('index') }}">@lang('main.home')</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{ route('categories') }}">@lang('main.products')</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{ route('basket') }}">@lang('main.basket')</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{ route('home') }}">@lang('main.orders')</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{ route('locale', __('main.set_lang')) }}">@lang('main.set_lang')</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

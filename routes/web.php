@@ -22,8 +22,12 @@ Route::group(['middleware' => 'is_user'],function(){
 Route::get('/orders', 'OrderController@userOrders')->name('home');   
 });        
 });*/
+Route::get('locale/{locale}', 'MainController@changeLocale')->name('locale');
 
-Route::get('/orders', 'OrderController@adminOrders')->name('home');
+
+Route::middleware(['set_locale'])->group(function(){
+    
+    Route::get('/orders', 'OrderController@adminOrders')->name('home');
 Route::delete('/orders/{id}','OrderController@deleteOrders');
 Route::get('/orders/{id}/edit', 'OrderController@updateOrders');
 Route::put('/orders/{id}', 'OrderController@upgradeOrders');
@@ -47,6 +51,11 @@ Route::post('/basket/place', 'BasketController@basketConfirm')->name('basket-con
 
 Route::get('/{category}', 'MainController@category')->name('category');
 Route::get('/{category}/{product?}', 'MainController@product')->name('product');
+    
+    
+}); 
+
+
 
 
 

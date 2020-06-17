@@ -5,16 +5,16 @@
 @section('content')
 
 <div>
-    <h1>Сonfirm order</h1>
+    <h1>@lang('main.confirm')</h1>
     <div>
         <div>
-            <p>Total cost of the order: <b>{{$order->OrderCost()}} euro</b></p>
+            <p>@lang('main.totalcostof')<b>{{$order->OrderCost()}} euro</b></p>
             <form action="{{route('basket-confirm')}}" method="POST">
                 <div>
-                    <p>Specify Name, Phone:</p>
+                    <p>@lang('main.specify')</p>
                     <div>
                         <div>
-                        <label>Name:  </label>
+                        <label>@lang('main.nameuser') </label>
                         <div>
                             <input type="text" name="name" id="name" value="">
                         </div>
@@ -22,7 +22,7 @@
                     <br>
                     <br>
                     <div>
-                        <label>Phone:  </label>
+                        <label>@lang('main.phone') </label>
                         <div>
                             <input type="text" name="phone" id="phone" value="">
                         </div>

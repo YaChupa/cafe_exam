@@ -9,7 +9,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12">
-                <h1>Orders</h1>
+                <h1>@lang('main.orders')</h1>
                 <table class="table">
                     <tbody>
                     
@@ -18,16 +18,16 @@
                                 #
                             </th>
                             <th>
-                                Name
+                                @lang('main.nameuser')
                             </th>
                             <th>
-                                Phone
+                                @lang('main.phone')
                             </th>
                             <th>
-                                Date
+                                 @lang('main.date')
                             </th>
                             <th>
-                                Cost
+                                @lang('main.cost')
                             </th>
                         </tr>
                         @foreach($orders as $order)
