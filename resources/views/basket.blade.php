@@ -10,13 +10,13 @@
     <h1>Basket</h1>
     <p>Order registration</p>
     <div>
-        <table>
+        <table class="table">
             <thead>
                 <tr>
-                    <th>Name</th>
-                    <th>Quantity</th>
-                    <th>Price</th>
-                    <th>Cost</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Cost</th>
                 </tr>
             </thead>
             @foreach($order->products as $product)
@@ -26,14 +26,14 @@
                             <img> {{$product ->name}}
                         </a>
                     </td>
-                    <td class="row"><span class="">{{$product->pivot->count}}</span>
-                        <div>
+                    <td class=""><span class="">{{$product->pivot->count}}</span>
+                        <div class="row">
                             <form action="{{route('basket-remove', $product)}}" method="POST">
-                            <button type="submit" class="btn btn-outline-secondary" href=""><span class="minus">-</span></button>
+                            <button type="submit" class="btn btn-outline-secondary" href=""><span class="">-</span></button>
                             @CSRF
                             </form>
                             <form action="{{route('basket-add', $product)}}" method="POST">
-                            <button type="submit" class="btn btn-outline-secondary " href=""><span class="plus">+</span></button>
+                            <button type="submit" class="btn btn-outline-secondary " href=""><span class="">+</span></button>
                             @CSRF
                             </form>
                         </div>
@@ -63,8 +63,8 @@
     
 </div>
 @else
-<p>Your basket is empty</p>
 
+<p class="empty">Your basket is empty!</p>
 
 @endisset
 

@@ -4,13 +4,16 @@
 
 @section('content')
 
-<div class="starter-template">
-  <div class="justify-content-center">
+<div class="">
+  <div class="">
       @foreach($categories as $category)
       <div>
-          <a href="{{ route('category', $category->code)}}">     
-              <img>
-              <h2> {{$category->name}} </h2>
+          <a class="empty" href="{{ route('category', $category->code)}}">     
+            <table class="row">
+                <tr>
+                    <th>{{$category->name}}</th>
+                </tr>
+            </table>
           </a>  
       </div>        
       @endforeach
@@ -18,6 +21,4 @@
 </div>
 
 @endsection
-
-
 
