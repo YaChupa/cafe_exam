@@ -12,9 +12,12 @@ class OrderController extends Controller
      *
      * @return void
      */
+    
+    
     public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware('is_admin')->only(['deleteOrders','updateOrders','upgradeOrders']);
     }
 
     /**
@@ -69,6 +72,46 @@ class OrderController extends Controller
         //dd($sum);
         return view('auth.admin.userinfo', compact('orders','orderpage','sum'));
     }
+    
+    
+    public function deleteOrders($id)
+    {   
+        
+        $orderpage= \App\Order::findOrFail($id);
+        $orderpage->delete();
+        
+        return redirect('/orders');
+        
+        //return view('auth.admin.index', compact('orders'));
+    }
+    
+    
+    public function updateOrders($id)
+    {   
+        
+        $orderpage= \App\Order::findOrFail($id);
+        
+        
+        return view('auth.admin.update',['order'=> $orderpage]);
+        
+        //return view('auth.admin.index', compact('orders'));
+    }
+    
+    
+    public function upgradeOrders(Request $request)
+    {   
+        
+        $order= \App\Order::findOrFail($request->id);
+        $order->name = $request->name;
+        $order->phone = $request->phone;
+        $order->save();
+       
+        return redirect('/orders');
+        //return view('auth.admin.update',['order'=> $order]);
+        //return view('auth.admin.index', compact('orders'));
+    }
+    
+    
     
     
 }

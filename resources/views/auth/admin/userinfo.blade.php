@@ -17,29 +17,29 @@
                                 Product
                             </th>
                             <th>
-                                Kol-vo
+                                Count
                             </th>
                             <th>
-                                Cena
+                                Price
                             </th>
                             <th>
-                                Obst
+                                Cost
                             </th>
                         </tr>
                         @foreach($orders as $order)
                         <tr>
                             <td>{{$order ->name}}</td>
                             <td>{{$order->count}}</td>
-                            <td>{{$order->price}}</td>
-                            <td>{{$order->price*$order->count}}</td>   
+                            <td>{{$order->price}} €</td>
+                            <td>{{$order->price*$order->count}} €</td>   
                         </tr>
                         @endforeach
                         
                         <tr>
-                            <td>OBshaja stoimos: </td>
+                            <td>Total cost: </td>
                             <td></td>
                             <td></td>
-                            <td>{{$sum}}</td>
+                            <td>{{$sum}} €</td>
                         </tr>
                     </tbody>
                 </table>

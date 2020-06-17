@@ -24,7 +24,12 @@ Route::get('/orders', 'OrderController@userOrders')->name('home');
 });*/
 
 Route::get('/orders', 'OrderController@adminOrders')->name('home');
+Route::delete('/orders/{id}','OrderController@deleteOrders');
+Route::get('/orders/{id}/edit', 'OrderController@updateOrders');
+Route::put('/orders/{id}', 'OrderController@upgradeOrders');
 Route::get('/orders/{id}', 'OrderController@showOrder');
+
+
 
 
 

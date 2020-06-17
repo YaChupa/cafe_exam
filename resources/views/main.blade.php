@@ -19,6 +19,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
 
     <!-- Favicons -->
@@ -32,7 +33,8 @@
 <meta name="theme-color" content="#563d7c">
 
 
-    <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=-yS3BMu1FMLAYzGVqrG_og_4sSPEQkbECOPfTGlaBxt3OE4Q4pppJoPrsGXhCtJXMe8zW-8llG10cNSX35daTJB1ALtNekO5TkFcN50OUho" charset="UTF-8"></script><style>
+    <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=-yS3BMu1FMLAYzGVqrG_og_4sSPEQkbECOPfTGlaBxt3OE4Q4pppJoPrsGXhCtJXMe8zW-8llG10cNSX35daTJB1ALtNekO5TkFcN50OUho" charset="UTF-8"></script>
+    <style>
       .bd-placeholder-img {
         font-size: 1.125rem;
         text-anchor: middle;

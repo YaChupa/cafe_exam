@@ -29,9 +29,6 @@
                             <th>
                                 Cost
                             </th>
-                            <th>
-                                Deistvije
-                            </th>
                         </tr>
                         @foreach($orders as $order)
                         
@@ -41,25 +38,26 @@
                             <td>{{$order ->name}}</td>
                             <td>{{$order ->phone}}</td>
                             <td>{{$order ->created_at}}</td>
-                            <td>{{$order->OrderCost()}}euro</td>
+                            <td>{{$order->OrderCost()}} €</td>
                             <td>
                                 <div class="btn btn-outline-secondary" role="group">
                                     <a class="" type="button" href="{{url('/orders/'.$order ->id)}}">Open</a>
                                     
                                 </div>                                   
                             </td>
+                            @if(auth()->user()->isAdmin())
                             <td>
-                                <div class="btn btn-outline-secondary" role="group">
-                                    <a class="" type="button" href="{{url('/orders/'.$order ->id)}}">Delete</a>
-                                    
-                                </div>                                   
+                                    {{Form::open(['method' => 'DELETE', 'url' => url('/orders/'.$order ->id)])}}
+                                    {{Form::submit('Delete',['class' => 'btn btn-outline-secondary'])}}
+                                    {{Form::close()}}                                 
                             </td>
                             <td>
                                 <div class="btn btn-outline-secondary" role="group">
-                                    <a class="" type="button" href="{{url('/orders/'.$order ->id)}}">Update</a>
+                                    <a class="" type="button" href="{{url('/orders/'.$order ->id.'/edit')}}">Update</a>
                                     
                                 </div>                                   
                             </td>
+                            @endif
                         </tr>
                         @endforeach
                     </tbody>

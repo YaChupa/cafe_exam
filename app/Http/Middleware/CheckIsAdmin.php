@@ -2,7 +2,9 @@
 
 namespace App\Http\Middleware;
 
+
 use Closure;
+use Illuminate\Support\Facades\Auth;
 
 class CheckIsAdmin
 {
@@ -16,12 +18,17 @@ class CheckIsAdmin
     public function handle($request, Closure $next)
     {
         $user = \Illuminate\Support\Facades\Auth::user();
-        if(!$user->isAdmin()){
-           return redirect()->route('index');
-        }
-        if($user->isAdmin()){
-           return redirect()->route('home');
+        if (!(Auth::check() && Auth::user()->isAdmin()))
+        {
+            return redirect('/')->withErrors('Access denied to ADMIN functionality!');
         }
         return $next($request);
     }
 }
+
+        
+        
+       /* if(!$user->isAdmin()){
+           return redirect()->route('index');
+        }
+        return $next($request);*/

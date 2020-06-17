@@ -8,15 +8,15 @@
 
 <div>
     <h1>Basket</h1>
-    <p>Oformlenie zakaza</p>
+    <p>Order registration</p>
     <div>
         <table>
             <thead>
                 <tr>
                     <th>Name</th>
-                    <th>Col-vo</th>
+                    <th>Quantity</th>
                     <th>Price</th>
-                    <th>Stoimost</th>
+                    <th>Cost</th>
                 </tr>
             </thead>
             @foreach($order->products as $product)
@@ -26,33 +26,36 @@
                             <img> {{$product ->name}}
                         </a>
                     </td>
-                    <td><span class="heh">{{$product->pivot->count}}</span>
+                    <td class="row"><span class="">{{$product->pivot->count}}</span>
                         <div>
                             <form action="{{route('basket-remove', $product)}}" method="POST">
                             <button type="submit" class="btn btn-outline-secondary" href=""><span class="minus">-</span></button>
                             @CSRF
                             </form>
                             <form action="{{route('basket-add', $product)}}" method="POST">
-                            <button type="submit" class="btn btn-outline-secondary" href=""><span class="plus">+</span></button>
+                            <button type="submit" class="btn btn-outline-secondary " href=""><span class="plus">+</span></button>
                             @CSRF
                             </form>
                         </div>
                     </td>
-                    <td>{{$product->price}} euro</td>
-                    <td>{{$product->PriceCount()}} euro</td>
+                    <td>{{$product->price}} €</td>
+                    <td>{{$product->PriceCount()}} €</td>
                 </tr>          
             @endforeach
             <tbody>
 
                 <tr>
-                    <td coldspan ="3">Coop price</td>
-                    <td>{{$order-> OrderCost()}}</td>
+                    <td coldspan ="3">Total cost:  </td>
+                    <td></td>
+                    <td></td>
+                    <td>{{$order-> OrderCost()}} €</td>
+                    
                 </tr>
             </tbody>
         </table>
         <br>
         <div>
-            <a class="btn btn-outline-secondary" href="{{route('basket-place')}}">Oformit zakaz</a>
+            <a class="btn btn-outline-secondary" href="{{route('basket-place')}}">Place your order</a>
         </div>
     </div>
     

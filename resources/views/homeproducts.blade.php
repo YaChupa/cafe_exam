@@ -3,7 +3,7 @@
         <img>
         <div>
             <h3>{{$product->name}}</h3>
-            <p>{{$product->price}} euro</p>
+            <p>{{$product->price}} €</p>
             <p>
             <form action="{{route('basket-add',$product->id)}}" method="POST">
                 <button type="submit" class="btn btn-outline-secondary" role="button">Add in a basket</button>

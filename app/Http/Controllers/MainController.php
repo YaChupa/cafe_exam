@@ -23,8 +23,12 @@ class MainController extends Controller
    }
    
    
-   public function product($category,$product = null){
-       return view('product',['product' => $product]);
+   public function product($category,$productname = null){
+       
+       $product = \App\Product::where('code',$productname)->first(); 
+       //dd($product);
+       
+       return view('product',compact('product'));       
    }
    
  

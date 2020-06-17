@@ -5,18 +5,19 @@
 @section('content')
 
 <div>
-    <h1>Сonfirm order</h1>
+    <h1>Сhange order details</h1>
     <div>
         <div>
-            <p>Total cost of the order: <b>{{$order->OrderCost()}} euro</b></p>
-            <form action="{{route('basket-confirm')}}" method="POST">
+            <form action="{{url('/orders/{id}')}}" method="POST">
+                <input type="hidden" name="_method" value="PUT">
+                <input type="hidden" name="id" value="{{$order->id}}">
                 <div>
                     <p>Specify Name, Phone:</p>
                     <div>
                         <div>
                         <label>Name:  </label>
                         <div>
-                            <input type="text" name="name" id="name" value="">
+                            <input type="text" name="name" id="name" value="{{$order->name}}">
                         </div>
                         </div>
                     <br>
@@ -24,14 +25,14 @@
                     <div>
                         <label>Phone:  </label>
                         <div>
-                            <input type="text" name="phone" id="phone" value="">
+                            <input type="text" name="phone" id="phone" value="{{$order->phone}}">
                         </div>
                     </div>
                     </div>
                     <br>                   
                     <br>
                     @CSRF
-                    <input type="submit" class="btn btn-outline-secondary" value="Сonfirm order">
+                    <input type="submit" class="btn btn-outline-secondary" value="Update order details">
                 </div>
             </form>
         </div>
